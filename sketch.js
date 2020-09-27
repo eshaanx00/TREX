@@ -38,9 +38,9 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(600, 200);
+  createCanvas(windowWidth,windowHeight);
   
-  trex = createSprite(50,180,20,50);
+  trex = createSprite(50,height-70,20,50);
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided" ,trex_collided);
   trex.scale = 0.5;
@@ -58,7 +58,7 @@ function setup() {
   gameOver.scale = 0.5;
   restart.scale = 0.5;
   
-  invisibleGround = createSprite(200,190,400,10);
+  invisibleGround = createSprite(width/2,height-10,width,125);
   invisibleGround.visible = false;
   
   //create Obstacle and Cloud Groups
@@ -105,9 +105,10 @@ function draw() {
         }
     
     //jump when the space key is pressed
-    if(keyDown("space")&& trex.y >= 160) {
+    if(touches.length>0||keyDown("space")&& trex.y >= 160) {
         trex.velocityY = -12;
      jumpSound.play();
+      touches=[]
     }
    
     
@@ -157,6 +158,18 @@ function draw() {
      score=0
      trex.changeAnimation("running",trex_running)
        }
+  if(touches.length>0||keyDown("space")){
+       gameState=PLAY
+     obstaclesGroup.destroyEach();
+     cloudsGroup.destroyEach();
+     score=0
+     trex.changeAnimation("running",trex_running)
+     }
+    
+    
+     
+     
+     
   
   drawSprites();
 }
