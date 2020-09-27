@@ -40,12 +40,12 @@ function preload(){
 function setup() {
   createCanvas(windowWidth,windowHeight);
   
-  trex = createSprite(50,height-70,20,50);
+  trex = createSprite(50,180,20,50);
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided" ,trex_collided);
   trex.scale = 0.5;
   
-  ground = createSprite(width/2,height-20,width,125);
+  ground = createSprite(300,180,600,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   
@@ -58,7 +58,7 @@ function setup() {
   gameOver.scale = 0.5;
   restart.scale = 0.5;
   
-  invisibleGround = createSprite(width/2,height-10,width,125);
+  invisibleGround = createSprite(300,190,600,10);
   invisibleGround.visible = false;
   
   //create Obstacle and Cloud Groups
