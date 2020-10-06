@@ -128,7 +128,7 @@ function draw() {
     }
   }
    else if (gameState === END) {
-     console.log("hey")
+     
       gameOver.visible = true;
       restart.visible = true;
      
