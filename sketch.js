@@ -81,7 +81,7 @@ function draw() {
   //displaying score
   text("Score: "+ score, 500,50);
   
-  console.log("this is ",gameState)
+  
   
   
   if(gameState === PLAY){
